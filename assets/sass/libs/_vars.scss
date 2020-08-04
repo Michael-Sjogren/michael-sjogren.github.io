@@ -35,15 +35,15 @@
 	$palette: (
 		bg:					#272d2d,//#312450,
 		bg-alt:				darken(#272d2d, 5),
-		fg:					rgba(255, 255, 255, 0.836),
+		fg:					rgba(255, 255, 255, 0.9),
 		fg-bold:			#ffffff,
-		fg-light:			rgba(255, 255, 255, 0.651),
-		border:				rgba(255,255,255,0.15),
-		border-bg:			rgba(255,255,255,0.05),
-		accent1:			#FB3640,
-		accent1-alt:		darken(#272d2d, 5),
+		fg-light:			rgba(255, 255, 255, 0.75),
+		border:				rgba(255, 255, 255, 0.56),
+		border-bg:			rgba(109, 109, 109, 0.233),
+		accent1:			#AA3640,
+		accent1-alt:		darken(#AA3640, 10),
 		accent2:			#547AA5,
 		accent2-alt:		darken(#547AA5, 10),
-		accent3:			#778472,
-		accent3-alt:		darken(#778472, 10)
+		accent3:			#596356,
+		accent3-alt:		darken(#596356, 3)
 	);
