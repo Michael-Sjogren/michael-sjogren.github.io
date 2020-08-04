@@ -1,3 +1,3 @@
 # My own portfolio website
 
-Visit my website [here](https://www.michael-sjogren.github.io)
+Visit my website [here](https://michael-sjogren.github.io)
