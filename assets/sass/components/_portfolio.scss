@@ -4,9 +4,9 @@
 /// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 ///
 
-/* Features */
+/* Portfolio */
 
-	.features {
+	.portfolio {
 		@include vendor('display', 'flex');
 		@include vendor('flex-wrap', 'wrap');
 		border-radius: _size(border-radius);
@@ -14,7 +14,7 @@
 		background: _palette(border-bg);
 		margin: 0 0 _size(element-margin) 0;
 
-		section {
+		article {
 			@include padding(3em, 3em, (0.5em, 0, 0, 4em));
 			width: 50%;
 			border-top: solid 1px _palette(border);
@@ -51,7 +51,7 @@
 		}
 
 		&.inactive {
-			section {
+			article {
 				.icon {
 					@include vendor('transform', 'scale(0.5)');
 					opacity: 0;
@@ -62,7 +62,7 @@
 		@include breakpoint('<=medium') {
 			display: block;
 
-			section {
+			article {
 				border-top-width: 1px !important;
 				border-left-width: 0 !important;
 				width: 100%;
@@ -74,7 +74,7 @@
 		}
 
 		@include breakpoint('<=small') {
-			section {
+			article {
 				@include padding(2em, 1.5em, (0.5em, 0, 0, 4em));
 
 				.icon {
@@ -85,7 +85,7 @@
 		}
 
 		@include breakpoint('<=xsmall') {
-			section {
+			article {
 				@include padding(2em, 1.5em, (0, 0, 0, 0));
 
 				.icon {
