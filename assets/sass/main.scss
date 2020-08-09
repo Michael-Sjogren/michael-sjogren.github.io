@@ -48,6 +48,7 @@
 	@import 'components/spotlights';
 	@import 'components/table';
 	@import 'components/wrapper';
+	@import 'components/tag';
 // Layout.
 
 	@import 'layout/header';
@@ -55,3 +56,8 @@
 	@import 'layout/footer';
 	@import 'layout/sidebar';
 	@import 'layout/intro';
+
+.flex {
+	display: flex !important;
+	flex-wrap: wrap !important;
+}
