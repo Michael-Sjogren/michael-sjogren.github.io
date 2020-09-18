@@ -1597,6 +1597,7 @@ button:hover:active:after,
 .portfolio article {
   padding: 1.5em 1em 0.1em 2em;
   border: solid 1px rgba(255, 255, 255, 0.56);
+  max-width: 600px;
   background: rgba(109, 109, 109, 0.233);
   position: relative;
   margin-top: 1em;

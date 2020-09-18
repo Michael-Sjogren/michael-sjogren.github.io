@@ -18,7 +18,7 @@
 		article {
 			@include padding(1em, 1em, (0.5em, 0, 0, 1em));
 			border: solid 1px _palette(border);
-			ḿax-width: 500px;
+			max-width: 600px;
 			background: _palette(border-bg);
 			position: relative;
 			margin-top: 1em;
