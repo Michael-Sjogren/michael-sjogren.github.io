@@ -141,7 +141,7 @@ view _ =
                             """
                             "2022"
                             "Now"
-                            [ "Python", "Embedded Linux", "Zig", "CSS/Html", "JavaScript", "Git", "M-Bus", "LTE", "C#", "Azure", "Rest API", "Elm", "C++" ]
+                            [ "Python", "Embedded Linux", "Zig", "CSS/Html", "JavaScript", "Git", "M-Bus", "LTE", "C#", "Azure", "Rest API", "Elm", "C++", "Go" ]
                     , div [] <|
                         experienceView ".NET C# Developer - Lexicon YH"
                             """
