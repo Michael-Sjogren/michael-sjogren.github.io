@@ -5505,7 +5505,7 @@ var $author$project$Main$view = function (_v0) {
 											'2022',
 											'Now',
 											_List_fromArray(
-												['Python', 'Embedded Linux', 'Zig', 'CSS/Html', 'JavaScript', 'Git', 'M-Bus', 'LTE', 'C#', 'Azure', 'Rest API', 'Elm', 'C++']))),
+												['Python', 'Embedded Linux', 'Zig', 'CSS/Html', 'JavaScript', 'Git', 'M-Bus', 'LTE', 'C#', 'Azure', 'Rest API', 'Elm', 'C++', 'Go']))),
 										A2(
 										$elm$html$Html$div,
 										_List_Nil,
