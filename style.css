@@ -174,7 +174,7 @@ body {
 @media only screen and (width <= 850px ) {
     :root {
         --fs-900: 3.75rem;
-        --fs-800: 3.375;
+        --fs-800: 3.375rem;
         --fs-700: 2.25rem;
         --fs-600: 1.5rem;
         --fs-500: 1rem;
