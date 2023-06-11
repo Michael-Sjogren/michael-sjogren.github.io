@@ -1,0 +1,44 @@
+html,body {
+    font-size: 2.8mm;
+    print-color-adjust: economy;
+}
+
+ul > li > a {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    margin-inline: 1mm;
+    padding-inline: 1mm;
+    padding-block: 0mm;
+}
+
+.chapter {
+    border: none;
+    padding-inline: 0;
+    padding-block-end: 1mm;
+    margin-top: 1mm;
+    page-break-before: avoid;
+}
+
+:root {
+    --fs-900: 3.75rem;
+    --fs-800: 3.375rem;
+    --fs-700: 2.25rem;
+    --fs-600: 1.5rem;
+    --fs-500: 1rem;
+    --fs-400: 0.875rem;
+    --fs-200: 0.667rem;
+    --grid-gap: 1mm;
+    gap: 1mm;
+}
+
+.label {
+    padding: 0;
+    border: none;
+}
+
+.label + .label::before {
+    content: ', ';
+}

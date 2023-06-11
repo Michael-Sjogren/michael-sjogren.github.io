@@ -180,6 +180,6 @@ body {
         --fs-500: 1rem;
         --fs-400: 0.875rem;
         --fs-200: 0.667rem;
-        --grid-gap: 0.35rem
+        --grid-gap: 0.35rem;
     }
 }
