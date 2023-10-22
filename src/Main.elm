@@ -5,9 +5,9 @@ import Html exposing (..)
 import Html.Attributes exposing (class, href, style, target)
 import List exposing (..)
 import Time
-import Platform exposing (Task)
+import Platform exposing (..)
 import Task
-import String exposing (isEmpty)
+import String exposing (..)
 
 main : Program () Model Msg
 main =
@@ -25,7 +25,7 @@ type alias Model = {
 
 
 subscriptions : Model -> Sub Msg
-subscriptions model =
+subscriptions _ =
     Sub.none
 
 init : flags -> ( Model, Cmd Msg )
