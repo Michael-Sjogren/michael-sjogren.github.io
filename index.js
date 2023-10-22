@@ -5235,7 +5235,7 @@ var $author$project$Main$init = function (_v0) {
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Main$subscriptions = function (model) {
+var $author$project$Main$subscriptions = function (_v0) {
 	return $elm$core$Platform$Sub$none;
 };
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
@@ -5604,7 +5604,7 @@ var $author$project$Main$view = function (model) {
 											$author$project$Main$experienceView,
 											'Software Developer - PiiGAB AB',
 											'\n                            In my current position at PiiGAB AB, \n                            I have a diverse range of responsibilities that involve the daily maintenance \n                            and improvement of the technical solutions for PiiGAB M-Bus 900 web interface. \n                            Alongside this, I actively engage with the Linux system utilized by these units\n                            to solve problems and add new features.\n                            \n                            One of my notable contributions includes actively participating in the development of \n                            the LTE-module specifically designed for the 900 units. Furthermore, \n                            I have made substantial enhancements to the core web user interface of the system, \n                            resulting in a more user-friendly and efficient experience for the users.\n                            ',
-											'2022',
+											'2022-05-30',
 											'Now, ' + (yearStr + ($elm$core$String$isEmpty(yearStr) ? ' ' : (' and ' + monthStr))),
 											_List_fromArray(
 												['Python', 'Embedded Linux', 'Zig', 'CSS/Html', 'JavaScript', 'Git', 'M-Bus', 'LTE', 'C#', 'Azure', 'Rest API', 'Elm', 'C++', 'Go']))),
