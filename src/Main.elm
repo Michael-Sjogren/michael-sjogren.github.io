@@ -4,30 +4,55 @@ import Browser
 import Html exposing (..)
 import Html.Attributes exposing (class, href, style, target)
 import List exposing (..)
-
+import Time
+import Platform exposing (Task)
+import Task
+import String exposing (isEmpty)
 
 main : Program () Model Msg
 main =
     Browser.document
         { init = init
         , view = view
-        , update = \_ _ -> ( "", Cmd.none )
-        , subscriptions = \_ -> Sub.none
+        , update = update
+        , subscriptions =  subscriptions
         }
 
 
-type alias Model =
-    String
+type alias Model = {
+    now: Time.Posix
+    }
 
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Sub.none
 
 init : flags -> ( Model, Cmd Msg )
 init _ =
-    ( "", Cmd.none )
+    ( Model <| Time.millisToPosix 0 , Task.perform GetTime Time.now )
 
 
+update : Msg -> Model -> (Model , Cmd msg)
+update msg model =
+    case msg of
+        GetTime now ->
+            (Model now, Cmd.none)
+        NoOp ->
+            (model, Cmd.none)
 type Msg
     = NoOp
+    | GetTime Time.Posix
 
+
+calculateElapsedTime : Time.Posix -> Time.Posix -> (Int,Int)
+calculateElapsedTime from to =
+    let
+        elapsedSeconds = ((Time.posixToMillis to) - (Time.posixToMillis from)) // 1000
+        yearsElapsed = (elapsedSeconds // 31556926 )
+        months = (elapsedSeconds // 2629743) - (yearsElapsed * 12)
+    in
+    (yearsElapsed, months)
 
 experienceView : String -> String -> String -> String -> List String -> List (Html Msg)
 experienceView projectName projectDescription fromDate toDate technologies =
@@ -114,9 +139,28 @@ aboutMeView =
             ]
         ]
 
+piigabStartTime : Time.Posix
+piigabStartTime = (Time.millisToPosix 1653897600000)
 
 view : Model -> Browser.Document Msg
-view _ =
+view model =
+    let
+        (years,months) = (calculateElapsedTime piigabStartTime model.now) 
+        yearStr = if years <= 0 then
+            ""
+            else if years == 1 then
+                "1 Year "
+            else
+                (String.fromInt years) ++ " Years"
+        
+        monthStr = if months <= 0 then
+                ""
+            else if months == 1 then
+                "1 Month"
+            else
+                (String.fromInt months) ++ " Months" 
+    in
+    
     { title = "Michael Sjögren - Software Developer"
     , body =
         [ div [ class "grid container" ]
@@ -140,7 +184,7 @@ view _ =
                             resulting in a more user-friendly and efficient experience for the users.
                             """
                             "2022"
-                            "Now"
+                            ("Now, " ++  yearStr ++ if (String.isEmpty yearStr) then " " else " and " ++ monthStr )
                             [ "Python", "Embedded Linux", "Zig", "CSS/Html", "JavaScript", "Git", "M-Bus", "LTE", "C#", "Azure", "Rest API", "Elm", "C++", "Go" ]
                     , div [] <|
                         experienceView ".NET C# Developer - Lexicon YH"
