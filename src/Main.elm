@@ -183,7 +183,7 @@ view model =
                             I have made substantial enhancements to the core web user interface of the system, 
                             resulting in a more user-friendly and efficient experience for the users.
                             """
-                            "2022"
+                            "2022-05-30"
                             ("Now, " ++  yearStr ++ if (String.isEmpty yearStr) then " " else " and " ++ monthStr )
                             [ "Python", "Embedded Linux", "Zig", "CSS/Html", "JavaScript", "Git", "M-Bus", "LTE", "C#", "Azure", "Rest API", "Elm", "C++", "Go" ]
                     , div [] <|
