@@ -5658,7 +5658,7 @@ var $author$project$Main$view = function (model) {
 											'2022-05-30',
 											'Now, ' + (yearStr + ($elm$core$String$isEmpty(yearStr) ? ' ' : (' and ' + monthStr))),
 											_List_fromArray(
-												['Python', 'Embedded Linux', 'Zig', 'CSS/Html', 'JavaScript', 'Git', 'M-Bus', 'LTE', 'C#', 'Azure', 'Rest API', 'Elm', 'C++', 'Go']))),
+												['Python', 'Embedded Linux', 'Zig', 'CSS/Html', 'JavaScript', 'Git', 'M-Bus', 'LTE', 'C#', 'Azure', 'Rest API', 'Elm', 'C', 'C++', 'Go']))),
 										A2(
 										$elm$html$Html$div,
 										_List_Nil,
