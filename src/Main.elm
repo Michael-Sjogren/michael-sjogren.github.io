@@ -186,11 +186,6 @@ view model =
                             and improvement of the technical solutions for PiiGAB M-Bus 900 web interface. 
                             Alongside this, I actively engage with the Linux system utilized by these units
                             to solve problems and add new features.
-                            
-                            One of my notable contributions includes actively participating in the development of 
-                            the LTE-module specifically designed for the 900 units. Furthermore, 
-                            I have made substantial enhancements to the core web user interface of the system, 
-                            resulting in a more user-friendly and efficient experience for the users.
                             """
                             "2022-05-30"
                             ("Now, " ++  yearStr ++ if (String.isEmpty yearStr) then " " else " and " ++ monthStr )
