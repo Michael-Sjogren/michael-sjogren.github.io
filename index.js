@@ -5251,6 +5251,7 @@ var $author$project$Main$update = F2(
 			return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
 		}
 	});
+var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -5261,9 +5262,18 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
 var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$html$Html$Attributes$href = function (url) {
+	return A2(
+		$elm$html$Html$Attributes$stringProperty,
+		'href',
+		_VirtualDom_noJavaScriptUri(url));
+};
+var $elm$html$Html$li = _VirtualDom_node('li');
 var $elm$html$Html$p = _VirtualDom_node('p');
+var $elm$html$Html$Attributes$target = $elm$html$Html$Attributes$stringProperty('target');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$ul = _VirtualDom_node('ul');
 var $author$project$Main$aboutMeView = A2(
 	$elm$html$Html$div,
 	_List_fromArray(
@@ -5277,7 +5287,7 @@ var $author$project$Main$aboutMeView = A2(
 			_List_Nil,
 			_List_fromArray(
 				[
-					$elm$html$Html$text('\n                        During my free time, I indulge in personal game development projects\n                        and enjoy the challenge of solving puzzles through Advent of Code.\n                        I have a genuine interest in open source software, particularly Linux, Godot, and Blender,\n                        and I actively explore and contribute to these platforms.\n                ')
+					$elm$html$Html$text('\n                        During my free time, I indulge in personal game development projects\n                        and enjoy the challenge of solving puzzles through Advent of Code.\n                        I have a genuine interest in open source software, particularly Linux, Godot, and Blender.\n                ')
 				])),
 			A2(
 			$elm$html$Html$p,
@@ -5285,6 +5295,66 @@ var $author$project$Main$aboutMeView = A2(
 			_List_fromArray(
 				[
 					$elm$html$Html$text(' \n                        Additionally, when I\'m not engaged in technical pursuits,\n                         I find relaxation and enjoyment in watching movies or playing games with friends.\n                    ')
+				])),
+			A2(
+			$elm$html$Html$ul,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('flex')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$li,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$a,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$href('https://github.com/Michael-Sjogren'),
+									$elm$html$Html$Attributes$target('_blank')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text('GitHub')
+								]))
+						])),
+					A2(
+					$elm$html$Html$li,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$a,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$href('https://gitlab.com/Michael-Sjogren'),
+									$elm$html$Html$Attributes$target('_blank')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text('GitLab')
+								]))
+						])),
+					A2(
+					$elm$html$Html$li,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$a,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$href('https://linkedin.com/in/Michael-Sjogren'),
+									$elm$html$Html$Attributes$target('_blank')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text('LinkedIn')
+								]))
+						]))
 				]))
 		]));
 var $elm$time$Time$posixToMillis = function (_v0) {
@@ -5415,18 +5485,8 @@ var $author$project$Main$experienceView = F5(
 			]);
 	});
 var $elm$html$Html$h2 = _VirtualDom_node('h2');
-var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $elm$html$Html$header = _VirtualDom_node('header');
-var $elm$html$Html$Attributes$href = function (url) {
-	return A2(
-		$elm$html$Html$Attributes$stringProperty,
-		'href',
-		_VirtualDom_noJavaScriptUri(url));
-};
-var $elm$html$Html$li = _VirtualDom_node('li');
-var $elm$html$Html$Attributes$target = $elm$html$Html$Attributes$stringProperty('target');
-var $elm$html$Html$ul = _VirtualDom_node('ul');
 var $author$project$Main$intoSectionView = A2(
 	$elm$html$Html$header,
 	_List_fromArray(
@@ -5453,13 +5513,13 @@ var $author$project$Main$intoSectionView = A2(
 				]),
 			_List_fromArray(
 				[
-					$elm$html$Html$text('\n                Currently, I work at PiiGAB AB as a Software Developer,\n                where I am mostly maintaining the user interface of the PiiGAB M-Bus 900 units\n                but also gaining valuable experience and knowledge in embedded systems.\n                ')
+					$elm$html$Html$text('\n                Currently, I work at PiiGAB as a Software Developer,\n                My responsibilities at PiiGAB include\n                ')
 				])),
 			A2(
 			$elm$html$Html$ul,
 			_List_fromArray(
 				[
-					$elm$html$Html$Attributes$class('flex')
+					$elm$html$Html$Attributes$class('grid bulleted-list')
 				]),
 			_List_fromArray(
 				[
@@ -5468,51 +5528,42 @@ var $author$project$Main$intoSectionView = A2(
 					_List_Nil,
 					_List_fromArray(
 						[
-							A2(
-							$elm$html$Html$a,
-							_List_fromArray(
-								[
-									$elm$html$Html$Attributes$href('https://github.com/Michael-Sjogren'),
-									$elm$html$Html$Attributes$target('_blank')
-								]),
-							_List_fromArray(
-								[
-									$elm$html$Html$text('GitHub')
-								]))
+							$elm$html$Html$text('Engaging in fullstack web development for the 900T and 900S products, utilizing Python, JavaScript, HTML, and CSS.')
 						])),
 					A2(
 					$elm$html$Html$li,
 					_List_Nil,
 					_List_fromArray(
 						[
-							A2(
-							$elm$html$Html$a,
-							_List_fromArray(
-								[
-									$elm$html$Html$Attributes$href('https://gitlab.com/Michael-Sjogren'),
-									$elm$html$Html$Attributes$target('_blank')
-								]),
-							_List_fromArray(
-								[
-									$elm$html$Html$text('GitLab')
-								]))
+							$elm$html$Html$text('Providing technical customer support for the PiiGAB 900, employing tools like TeamViewer, SSH, and Linux knowledge.')
 						])),
 					A2(
 					$elm$html$Html$li,
 					_List_Nil,
 					_List_fromArray(
 						[
-							A2(
-							$elm$html$Html$a,
-							_List_fromArray(
-								[
-									$elm$html$Html$Attributes$href('https://linkedin.com/in/Michael-Sjogren'),
-									$elm$html$Html$Attributes$target('_blank')
-								]),
-							_List_fromArray(
-								[
-									$elm$html$Html$text('LinkedIn')
-								]))
+							$elm$html$Html$text('Enhancing and automating various aspects of production related to PiiGAB 900 Gateways, leveraging technologies such as Golang, Elm, and SQLite.')
+						])),
+					A2(
+					$elm$html$Html$li,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text('Designing a tool with a friendly user interface to locate gateways on the network, developed using Godot and C#.')
+						])),
+					A2(
+					$elm$html$Html$li,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text('Maintaining C/C++ software applications, namely \'mbushub\' and \'quickpost\'. ')
+						])),
+					A2(
+					$elm$html$Html$li,
+					_List_Nil,
+					_List_fromArray(
+						[
+							$elm$html$Html$text('Establishing a JSON REST API for the PiiGAB 900 Gateway.')
 						]))
 				]))
 		]));

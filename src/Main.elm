@@ -101,22 +101,19 @@ intoSectionView =
         , p [ class "" ]
             [ text <|
                 """
-                Currently, I work at PiiGAB AB as a Software Developer,
-                where I am mostly maintaining the user interface of the PiiGAB M-Bus 900 units
-                but also gaining valuable experience and knowledge in embedded systems.
+                Currently, I work at PiiGAB as a Software Developer,
+                My responsibilities at PiiGAB include
                 """
             ]
-        , ul [ class "flex" ]
-            [ li []
-                [ a [ href "https://github.com/Michael-Sjogren", target "_blank" ] [ text "GitHub" ]
-                ]
-            , li []
-                [ a [ href "https://gitlab.com/Michael-Sjogren", target "_blank" ] [ text "GitLab" ]
-                ]
-            , li []
-                [ a [ href "https://linkedin.com/in/Michael-Sjogren", target "_blank" ] [ text "LinkedIn" ]
-                ]
-            ]
+        , ul [class "grid bulleted-list"] [
+
+                li [] [ text "Engaging in fullstack web development for the 900T and 900S products, utilizing Python, JavaScript, HTML, and CSS."]
+                ,li [] [ text "Providing technical customer support for the PiiGAB 900, employing tools like TeamViewer, SSH, and Linux knowledge."]
+                ,li [] [ text "Enhancing and automating various aspects of production related to PiiGAB 900 Gateways, leveraging technologies such as Golang, Elm, and SQLite."]
+                ,li [] [ text "Designing a tool with a friendly user interface to locate gateways on the network, developed using Godot and C#."]
+                ,li [] [ text "Maintaining C/C++ software applications, namely 'mbushub' and 'quickpost'. "]
+                ,li [] [ text "Establishing a JSON REST API for the PiiGAB 900 Gateway."]
+        ]
         ]
 
 
@@ -127,8 +124,7 @@ aboutMeView =
             [ text """
                         During my free time, I indulge in personal game development projects
                         and enjoy the challenge of solving puzzles through Advent of Code.
-                        I have a genuine interest in open source software, particularly Linux, Godot, and Blender,
-                        and I actively explore and contribute to these platforms.
+                        I have a genuine interest in open source software, particularly Linux, Godot, and Blender.
                 """
             ]
         , p []
@@ -136,6 +132,19 @@ aboutMeView =
                         Additionally, when I'm not engaged in technical pursuits,
                          I find relaxation and enjoyment in watching movies or playing games with friends.
                     """
+            ]
+        ,
+
+        ul [ class "flex" ]
+            [ li []
+                [ a [ href "https://github.com/Michael-Sjogren", target "_blank" ] [ text "GitHub" ]
+                ]
+            , li []
+                [ a [ href "https://gitlab.com/Michael-Sjogren", target "_blank" ] [ text "GitLab" ]
+                ]
+            , li []
+                [ a [ href "https://linkedin.com/in/Michael-Sjogren", target "_blank" ] [ text "LinkedIn" ]
+                ]
             ]
         ]
 

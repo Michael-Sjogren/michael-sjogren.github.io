@@ -136,7 +136,10 @@ body {
 /*================================================================*/
 /* Custom Styles */
 /*================================================================*/
-
+.bulleted-list {
+    list-style: disc;
+    list-style-position: inside;
+}
 .label {
     border-radius: 1em;
     padding: .8em;
