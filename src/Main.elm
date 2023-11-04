@@ -189,7 +189,7 @@ view model =
                             """
                             "2022-05-30"
                             ("Now, " ++  yearStr ++ if (String.isEmpty yearStr) then " " else " and " ++ monthStr )
-                            [ "Python", "Embedded Linux", "Zig", "CSS/Html", "JavaScript", "Git", "M-Bus", "LTE", "C#", "Azure", "Rest API", "Elm", "C++", "Go" ]
+                            [ "Python", "Embedded Linux", "Zig", "CSS/Html", "JavaScript", "Git", "M-Bus", "LTE", "C#", "Azure", "Rest API", "Elm","C", "C++", "Go" ]
                     , div [] <|
                         experienceView ".NET C# Developer - Lexicon YH"
                             """
