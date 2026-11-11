@@ -1,10 +1,17 @@
-- name: Setup Elm and build
-  on: [push, merge, pull_request]
-  jobs:
-    build_elm:
-      runs_on: ubuntu-latest
-      steps:
-        - uses: justgook/setup-elm@1.2.0
-          with:
-            elm-version: 0.19.1
-          - run: elm install && elm make src/Main.elm --output.index.js && rm -r elm-stuff && rm -r src
+name: Setup Elm and build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build_elm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: justgook/setup-elm@1.2.0
+        with:
+          elm-version: 0.19.3
+
+      - run: elm make src/Main.elm --output=index.js
