@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: justgook/setup-elm@1.2.0
+      - uses: jorelali/setup-elm@v6
         with:
           elm-version: 0.19.3
 
