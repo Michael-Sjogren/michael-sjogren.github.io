@@ -5138,7 +5138,7 @@ var $author$project$Main$aboutMeView = A2(
 			$elm$html$Html$ul,
 			_List_fromArray(
 				[
-					$elm$html$Html$Attributes$class('flex gap-4 items-center text-red-900 underline font-heading')
+					$elm$html$Html$Attributes$class('flex gap-4 items-center text-red-900 underline font-heading text-500')
 				]),
 			_List_fromArray(
 				[
@@ -5215,7 +5215,7 @@ var $author$project$Main$projectView = F3(
 							$elm$html$Html$a,
 							_List_fromArray(
 								[
-									$elm$html$Html$Attributes$class('underline text-red-900 font-heading'),
+									$elm$html$Html$Attributes$class('underline text-red-900 font-heading text-500'),
 									$elm$html$Html$Attributes$href(url),
 									$elm$html$Html$Attributes$target('_blank')
 								]),
@@ -5263,7 +5263,7 @@ var $author$project$Main$experienceView = F5(
 						$elm$html$Html$h3,
 						_List_fromArray(
 							[
-								$elm$html$Html$Attributes$class('text-500 md:text-600 text-stone-600 font-bold font-heading')
+								$elm$html$Html$Attributes$class('text-500 md:text-600 text-stone-600 font-heading')
 							]),
 						_List_fromArray(
 							[
@@ -5273,7 +5273,7 @@ var $author$project$Main$experienceView = F5(
 						$elm$html$Html$div,
 						_List_fromArray(
 							[
-								$elm$html$Html$Attributes$class('flex gap-4 items-center')
+								$elm$html$Html$Attributes$class('flex gap-4 items-center text-500')
 							]),
 						_List_fromArray(
 							[
@@ -5281,7 +5281,7 @@ var $author$project$Main$experienceView = F5(
 								$elm$html$Html$span,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$class('font-bold font-heading')
+										$elm$html$Html$Attributes$class('font-heading')
 									]),
 								_List_fromArray(
 									[
@@ -5301,7 +5301,7 @@ var $author$project$Main$experienceView = F5(
 								$elm$html$Html$span,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$class('fw-bold')
+										$elm$html$Html$Attributes$class('font-heading')
 									]),
 								_List_fromArray(
 									[
@@ -5352,7 +5352,7 @@ var $author$project$Main$intoSectionView = A2(
 			$elm$html$Html$h1,
 			_List_fromArray(
 				[
-					$elm$html$Html$Attributes$class('font-heading md:text-800 text-700 font-bold text-olive-800 py-2')
+					$elm$html$Html$Attributes$class('font-heading md:text-800 text-700 text-olive-800 py-2')
 				]),
 			_List_fromArray(
 				[
@@ -5420,7 +5420,7 @@ var $author$project$Main$view = function (model) {
 										$elm$html$Html$h2,
 										_List_fromArray(
 											[
-												$elm$html$Html$Attributes$class('font-bold font-heading text-600 md:text-700 text-olive-800 font-heading')
+												$elm$html$Html$Attributes$class('font-heading text-600 md:text-700 text-olive-800 font-heading')
 											]),
 										_List_fromArray(
 											[
@@ -5461,7 +5461,7 @@ var $author$project$Main$view = function (model) {
 										$elm$html$Html$h2,
 										_List_fromArray(
 											[
-												$elm$html$Html$Attributes$class('text-600 md:text-700 text-olive-800 font-bold font-heading')
+												$elm$html$Html$Attributes$class('text-600 md:text-700 text-olive-800 font-heading')
 											]),
 										_List_fromArray(
 											[

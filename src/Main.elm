@@ -68,11 +68,11 @@ calculateElapsedTime from to =
 experienceView : String -> String -> String -> String -> List String -> List (Html Msg)
 experienceView projectName projectDescription fromDate toDate technologies =
     [ div [ class "grid gap-4 items-center chapter m-auto max-w-4xl" ]
-        [ h3 [ class "text-500 md:text-600 text-stone-600 font-bold font-heading" ] [ text projectName ]
-        , div [ class "flex gap-4 items-center" ]
-            [ span [ class "font-bold font-heading" ] [ text "From" ]
+        [ h3 [ class "text-500 md:text-600 text-stone-600 font-heading" ] [ text projectName ]
+        , div [ class "flex gap-4 items-center text-500" ]
+            [ span [ class "font-heading" ] [ text "From" ]
             , span [ class "text-red-900" ] [ text fromDate ]
-            , span [ class "fw-bold" ] [ text "To" ]
+            , span [ class "font-heading" ] [ text "To" ]
             , span [ class "text-red-900" ] [ text toDate ]
             ]
         , div [ class "flex gap-2 flex-wrap items-center" ] <| List.map techLabelView technologies
@@ -87,7 +87,7 @@ projectView : String -> String -> String -> Html Msg
 projectView name url description =
     div [ class "grid gap-4 items-center" ]
         [ span []
-            [ a [ class "underline text-red-900 font-heading", href url, target "_blank" ] [ text name ]
+            [ a [ class "underline text-red-900 font-heading text-500", href url, target "_blank" ] [ text name ]
             ]
         , p []
             [ text description
@@ -107,7 +107,7 @@ techLabelView labelText =
 intoSectionView : Html Msg
 intoSectionView =
     header [ class "grid gap-2 items-center text-justify" ]
-        [ h1 [ class "font-heading md:text-800 text-700 font-bold text-olive-800 py-2" ] [ text "Michael Sjögren" ]
+        [ h1 [ class "font-heading md:text-800 text-700 text-olive-800 py-2" ] [ text "Michael Sjögren" ]
         , p [ class "max-w-2xl" ]
             [ text <|
                 """
@@ -134,7 +134,7 @@ aboutMeView =
                          I find relaxation and enjoyment in watching movies or playing games with friends.
                     """
             ]
-        , ul [ class "flex gap-4 items-center text-red-900 underline font-heading" ]
+        , ul [ class "flex gap-4 items-center text-red-900 underline font-heading text-500" ]
             [ li []
                 [ a [ href "https://github.com/Michael-Sjogren", target "_blank" ] [ text "GitHub" ]
                 ]
@@ -186,7 +186,7 @@ view model =
             , aboutMeView
             , div [ class "grid gap-4 items-center" ]
                 [ div [ class "grid gap-4 items-center max-w-4xl justify-center" ]
-                    [ h2 [ class "font-bold font-heading text-600 md:text-700 text-olive-800 font-heading" ] [ text "Work" ]
+                    [ h2 [ class "font-heading text-600 md:text-700 text-olive-800 font-heading" ] [ text "Work" ]
                     , div [] <|
                         experienceView "Software Developer - PiiGAB AB"
                             """
@@ -219,7 +219,7 @@ view model =
                             [ "PHP", "SQL", "Wordpress", "CMS", "CSS/Html", "JavaScript", "JQuery", "Git" ]
                     ]
                 , div [ class "grid gap-4 items-center pbe-4 max-w-4xl" ]
-                    [ h2 [ class "text-600 md:text-700 text-olive-800 font-bold font-heading" ] [ text "Projects" ]
+                    [ h2 [ class "text-600 md:text-700 text-olive-800 font-heading" ] [ text "Projects" ]
                     , ul [ class "grid gap-4 items-center" ]
                         [ li [] [ projectView "Robber Run" "https://gruset.itch.io/robber-run" """
                         A game created for the Godot Wild Jam #33.
