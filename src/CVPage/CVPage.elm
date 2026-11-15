@@ -1,7 +1,7 @@
 module CVPage.CVPage exposing (aboutMeView, experienceView, intoSectionView, projectView, techLabelView, view)
 
 import CVPage.Message exposing (Msg(..))
-import Html exposing (Html, a, article, div, h2, h3, header, li, p, span, text, ul)
+import Html exposing (Html, a, article, div, h3, header, li, p, span, text, ul)
 import Html.Attributes exposing (class, href, target)
 import Shared exposing (viewPageTitle, viewSectionitle)
 import Time

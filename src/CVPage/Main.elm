@@ -4,7 +4,6 @@ import Browser
 import CVPage.CVPage exposing (..)
 import CVPage.Message exposing (Msg(..))
 import Html exposing (..)
-import Html.Attributes exposing (class, href)
 import List exposing (..)
 import Platform exposing (..)
 import Shared exposing (Page(..), pageContainer, viewNav)
