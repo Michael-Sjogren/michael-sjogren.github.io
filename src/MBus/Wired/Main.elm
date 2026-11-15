@@ -2,6 +2,7 @@ port module MBus.Wired.Main exposing (main)
 
 import Array exposing (Array)
 import Browser
+import Hex
 import Html exposing (..)
 import Html.Attributes exposing (class, for, id, value)
 import Html.Events exposing (onClick, onInput)
@@ -128,12 +129,32 @@ viewDecodeHeaderResult : Model -> Html msg
 viewDecodeHeaderResult model =
     case model.result of
         Just result ->
-            div []
-                [ div []
-                    [ text <| getSecondaryAddress result ]
-                , div []
-                    [ text <| result.manufacturerName ]
-                , div [] [ text result.deviceTypeName ]
+            section [ class "grid gap-4 items-center" ]
+                [ div [ class "flex gap-4 items-center wrap" ]
+                    [ div [ class "bg-neutral-200 p-3 rounded-lg" ]
+                        [ text <| "Secondary: " ++ getSecondaryAddress result ]
+                    , div [ class "bg-neutral-200 p-3 rounded-lg" ]
+                        [ text <| "Primary: " ++ String.fromInt result.primaryAddress ]
+                    ]
+                , div [ class "flex gap-4 items-center wrap" ]
+                    [ div [ class "bg-neutral-200 p-3 rounded-xl" ] [ text <| "Manufacturer: " ++ result.manufacturerName ]
+                    , div [ class "bg-neutral-200 p-3 rounded-xl" ] [ text <| "Device type: " ++ result.deviceTypeName ]
+                    , div [ class "bg-neutral-200 p-3 rounded-xl" ] [ text <| "Status: " ++ Hex.toString result.status ++ "h" ]
+                    ]
+                , div
+                    [ class "flex gap-4 items-center wrap" ]
+                    [ div [ class "bg-neutral-200 p-3 rounded-xl" ] [ text <| "Checksum: " ++ Hex.toString result.checksum ++ "h" ]
+                    , div [ class "bg-neutral-200 p-3 rounded-xl" ]
+                        [ text <|
+                            "Result: "
+                                ++ (if result.ok then
+                                        "Telgram Ok"
+
+                                    else
+                                        result.errorMsg
+                                   )
+                        ]
+                    ]
                 ]
 
         Nothing ->

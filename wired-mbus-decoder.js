@@ -5728,34 +5728,7 @@ var $elm$html$Html$th = _VirtualDom_node('th');
 var $elm$html$Html$tr = _VirtualDom_node('tr');
 var $elm$html$Html$table = _VirtualDom_node('table');
 var $elm$html$Html$tbody = _VirtualDom_node('tbody');
-var $elm$core$String$length = _String_length;
-var $elm$core$Bitwise$and = _Bitwise_and;
-var $elm$core$Bitwise$shiftRightBy = _Bitwise_shiftRightBy;
-var $elm$core$String$repeatHelp = F3(
-	function (n, chunk, result) {
-		return (n <= 0) ? result : A3(
-			$elm$core$String$repeatHelp,
-			n >> 1,
-			_Utils_ap(chunk, chunk),
-			(!(n & 1)) ? result : _Utils_ap(result, chunk));
-	});
-var $elm$core$String$repeat = F2(
-	function (n, chunk) {
-		return A3($elm$core$String$repeatHelp, n, chunk, '');
-	});
-var $elm$core$String$cons = _String_cons;
-var $elm$core$String$fromChar = function (_char) {
-	return A2($elm$core$String$cons, _char, '');
-};
-var $elm$core$String$padLeft = F3(
-	function (n, _char, string) {
-		return _Utils_ap(
-			A2(
-				$elm$core$String$repeat,
-				n - $elm$core$String$length(string),
-				$elm$core$String$fromChar(_char)),
-			string);
-	});
+var $elm$html$Html$section = _VirtualDom_node('section');
 var $elm$core$Basics$negate = function (n) {
 	return -n;
 };
@@ -5833,6 +5806,34 @@ var $rtfeldman$elm_hex$Hex$toString = function (num) {
 			_Utils_chr('-'),
 			A2($rtfeldman$elm_hex$Hex$unsafePositiveToDigits, _List_Nil, -num)) : A2($rtfeldman$elm_hex$Hex$unsafePositiveToDigits, _List_Nil, num));
 };
+var $elm$core$String$length = _String_length;
+var $elm$core$Bitwise$and = _Bitwise_and;
+var $elm$core$Bitwise$shiftRightBy = _Bitwise_shiftRightBy;
+var $elm$core$String$repeatHelp = F3(
+	function (n, chunk, result) {
+		return (n <= 0) ? result : A3(
+			$elm$core$String$repeatHelp,
+			n >> 1,
+			_Utils_ap(chunk, chunk),
+			(!(n & 1)) ? result : _Utils_ap(result, chunk));
+	});
+var $elm$core$String$repeat = F2(
+	function (n, chunk) {
+		return A3($elm$core$String$repeatHelp, n, chunk, '');
+	});
+var $elm$core$String$cons = _String_cons;
+var $elm$core$String$fromChar = function (_char) {
+	return A2($elm$core$String$cons, _char, '');
+};
+var $elm$core$String$padLeft = F3(
+	function (n, _char, string) {
+		return _Utils_ap(
+			A2(
+				$elm$core$String$repeat,
+				n - $elm$core$String$length(string),
+				$elm$core$String$fromChar(_char)),
+			string);
+	});
 var $author$project$MBus$DecodeResult$getSecondaryAddress = function (result) {
 	return A3(
 		$elm$core$String$padLeft,
@@ -5857,31 +5858,114 @@ var $author$project$MBus$Wired$Main$viewDecodeHeaderResult = function (model) {
 	if (_v0.$ === 'Just') {
 		var result = _v0.a;
 		return A2(
-			$elm$html$Html$div,
-			_List_Nil,
+			$elm$html$Html$section,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('grid gap-4 items-center')
+				]),
 			_List_fromArray(
 				[
 					A2(
 					$elm$html$Html$div,
-					_List_Nil,
 					_List_fromArray(
 						[
-							$elm$html$Html$text(
-							$author$project$MBus$DecodeResult$getSecondaryAddress(result))
+							$elm$html$Html$Attributes$class('flex gap-4 items-center wrap')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$div,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('bg-neutral-200 p-3 rounded-lg')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text(
+									'Secondary: ' + $author$project$MBus$DecodeResult$getSecondaryAddress(result))
+								])),
+							A2(
+							$elm$html$Html$div,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('bg-neutral-200 p-3 rounded-lg')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text(
+									'Primary: ' + $elm$core$String$fromInt(result.primaryAddress))
+								]))
 						])),
 					A2(
 					$elm$html$Html$div,
-					_List_Nil,
 					_List_fromArray(
 						[
-							$elm$html$Html$text(result.manufacturerName)
+							$elm$html$Html$Attributes$class('flex gap-4 items-center wrap')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$div,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('bg-neutral-200 p-3 rounded-xl')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text('Manufacturer: ' + result.manufacturerName)
+								])),
+							A2(
+							$elm$html$Html$div,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('bg-neutral-200 p-3 rounded-xl')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text('Device type: ' + result.deviceTypeName)
+								])),
+							A2(
+							$elm$html$Html$div,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('bg-neutral-200 p-3 rounded-xl')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text(
+									'Status: ' + ($rtfeldman$elm_hex$Hex$toString(result.status) + 'h'))
+								]))
 						])),
 					A2(
 					$elm$html$Html$div,
-					_List_Nil,
 					_List_fromArray(
 						[
-							$elm$html$Html$text(result.deviceTypeName)
+							$elm$html$Html$Attributes$class('flex gap-4 items-center wrap')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$div,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('bg-neutral-200 p-3 rounded-xl')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text(
+									'Checksum: ' + ($rtfeldman$elm_hex$Hex$toString(result.checksum) + 'h'))
+								])),
+							A2(
+							$elm$html$Html$div,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('bg-neutral-200 p-3 rounded-xl')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text(
+									'Result: ' + (result.ok ? 'Telgram Ok' : result.errorMsg))
+								]))
 						]))
 				]));
 	} else {
