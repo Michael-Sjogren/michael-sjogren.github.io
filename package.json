@@ -2,6 +2,8 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.3.5",
     "elm-format": "^0.8.8",
-    "tailwindcss": "^4.3.5"
+    "tailwindcss": "^4.3.5",
+    "uglify-js": "^3.19.3",
+    "uglifyjs": "^2.4.11"
   }
 }

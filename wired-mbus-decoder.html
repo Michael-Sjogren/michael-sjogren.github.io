@@ -5,10 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Michael Sjögren</title>
-        <script src="wired-mbus-decoder.js"></script>
+        <script src="wired-mbus-decoder.min.js"></script>
         <link rel="stylesheet" href="output.css" />
-        <!-- <link rel="stylesheet" href="style.css"> -->
-        <!-- <link rel="stylesheet" media="print" href="print.css"> -->
     </head>
     <body class="">
         <div id="myapp"></div>
@@ -17,16 +15,11 @@
             var exports = null;
             const wasmMemoryInterface = new odin.WasmMemoryInterface();
             const extraImports = {};
-
             function decode(telegram) {
-                console.log(telegram);
                 if (!(telegram instanceof Uint8Array)) {
                     console.error("not a u8 array");
                     return null;
                 }
-                // Reset the arena at the START of each decode
-
-                // Write data to WASM memory
                 const ptr = 1024;
                 const buffer = wasmMemoryInterface.loadBytes(
                     ptr,
@@ -43,10 +36,7 @@
                     console.error("failed to decode mbus telegram");
                     return null;
                 }
-                const str = wasmMemoryInterface.loadCstring(resultPtr);
-                console.log("Decode response:");
-                console.log(str);
-                return str;
+                return wasmMemoryInterface.loadCstring(resultPtr);
             }
 
             async function main() {
@@ -62,14 +52,13 @@
                 exports = wasmMemoryInterface.exports;
                 app.ports.sendDecodeRequest.subscribe(async (inputArray) => {
                     try {
-                        const bytes = new Uint8Array(inputArray)
+                        const bytes = new Uint8Array(inputArray);
                         app.ports.decodeResult.send(decode(bytes));
                     } catch (e) {
                         console.error("failed to decode " + e);
                     }
                 });
             }
-
             main();
         </script>
         <noscript>Please enable javascript</noscript>
