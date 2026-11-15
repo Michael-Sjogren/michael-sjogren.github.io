@@ -4496,10 +4496,6 @@ var $elm$core$Array$toList = function (array) {
 	return A3($elm$core$Array$foldr, $elm$core$List$cons, _List_Nil, array);
 };
 var $elm$core$Basics$GT = {$: 'GT'};
-var $elm$core$Basics$apL = F2(
-	function (f, x) {
-		return f(x);
-	});
 var $elm$time$Time$Name = function (a) {
 	return {$: 'Name', a: a};
 };
@@ -4519,11 +4515,11 @@ var $elm$time$Time$Posix = function (a) {
 };
 var $elm$time$Time$millisToPosix = $elm$time$Time$Posix;
 var $elm$time$Time$now = _Time_now($elm$time$Time$millisToPosix);
-var $author$project$Main$Model = function (now) {
-	return {now: now};
+var $author$project$CVPage$Message$CVMsg = function (a) {
+	return {$: 'CVMsg', a: a};
 };
-var $author$project$Main$GetTime = function (a) {
-	return {$: 'GetTime', a: a};
+var $author$project$CVPage$Main$Model = function (now) {
+	return {now: now};
 };
 var $elm$core$Basics$apR = F2(
 	function (x, f) {
@@ -4711,6 +4707,10 @@ var $elm$core$Array$empty = A4($elm$core$Array$Array_elm_builtin, 0, $elm$core$A
 var $elm$core$Elm$JsArray$initialize = _JsArray_initialize;
 var $elm$core$Basics$remainderBy = _Basics_remainderBy;
 var $elm$core$Basics$lt = _Utils_lt;
+var $elm$core$Basics$apL = F2(
+	function (f, x) {
+		return f(x);
+	});
 var $elm$core$Array$Leaf = function (a) {
 	return {$: 'Leaf', a: a};
 };
@@ -5064,11 +5064,11 @@ var $elm$core$Task$perform = F2(
 			$elm$core$Task$Perform(
 				A2($elm$core$Task$map, toMessage, task)));
 	});
-var $author$project$Main$init = function (_v0) {
+var $author$project$CVPage$Main$init = function (_v0) {
 	return _Utils_Tuple2(
-		$author$project$Main$Model(
+		$author$project$CVPage$Main$Model(
 			$elm$time$Time$millisToPosix(0)),
-		A2($elm$core$Task$perform, $author$project$Main$GetTime, $elm$time$Time$now));
+		A2($elm$core$Task$perform, $author$project$CVPage$Message$CVMsg, $elm$time$Time$now));
 };
 var $elm$json$Json$Decode$map = _Json_map1;
 var $elm$json$Json$Decode$map2 = _Json_map2;
@@ -5085,12 +5085,9 @@ var $elm$virtual_dom$VirtualDom$toHandlerInt = function (handler) {
 			return 3;
 	}
 };
-var $elm$html$Html$h2 = _VirtualDom_node('h2');
 var $elm$html$Html$li = _VirtualDom_node('li');
 var $elm$html$Html$ul = _VirtualDom_node('ul');
 var $elm$html$Html$div = _VirtualDom_node('div');
-var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -5100,9 +5097,6 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 			$elm$json$Json$Encode$string(string));
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
-var $elm$core$String$isEmpty = function (string) {
-	return string === '';
-};
 var $elm$html$Html$a = _VirtualDom_node('a');
 var $elm$html$Html$p = _VirtualDom_node('p');
 var $elm$html$Html$Attributes$href = function (url) {
@@ -5111,8 +5105,23 @@ var $elm$html$Html$Attributes$href = function (url) {
 		'href',
 		_VirtualDom_noJavaScriptUri(url));
 };
+var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $elm$html$Html$Attributes$target = $elm$html$Html$Attributes$stringProperty('target');
-var $author$project$Main$aboutMeView = A2(
+var $elm$html$Html$h2 = _VirtualDom_node('h2');
+var $author$project$Shared$viewSectionitle = function (title) {
+	return A2(
+		$elm$html$Html$h2,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('font-heading text-700 text-olive-700')
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text(title)
+			]));
+};
+var $author$project$CVPage$CVPage$aboutMeView = A2(
 	$elm$html$Html$div,
 	_List_fromArray(
 		[
@@ -5120,6 +5129,7 @@ var $author$project$Main$aboutMeView = A2(
 		]),
 	_List_fromArray(
 		[
+			$author$project$Shared$viewSectionitle('About'),
 			A2(
 			$elm$html$Html$p,
 			_List_Nil,
@@ -5196,7 +5206,7 @@ var $author$project$Main$aboutMeView = A2(
 				]))
 		]));
 var $elm$html$Html$span = _VirtualDom_node('span');
-var $author$project$Main$projectView = F3(
+var $author$project$CVPage$CVPage$projectView = F3(
 	function (name, url, description) {
 		return A2(
 			$elm$html$Html$div,
@@ -5235,7 +5245,7 @@ var $author$project$Main$projectView = F3(
 	});
 var $elm$html$Html$h3 = _VirtualDom_node('h3');
 var $elm$html$Html$article = _VirtualDom_node('article');
-var $author$project$Main$techLabelView = function (labelText) {
+var $author$project$CVPage$CVPage$techLabelView = function (labelText) {
 	return A2(
 		$elm$html$Html$div,
 		_List_fromArray(
@@ -5247,7 +5257,7 @@ var $author$project$Main$techLabelView = function (labelText) {
 				$elm$html$Html$text(labelText)
 			]));
 };
-var $author$project$Main$experienceView = F5(
+var $author$project$CVPage$CVPage$experienceView = F5(
 	function (projectName, projectDescription, fromDate, toDate, technologies) {
 		return _List_fromArray(
 			[
@@ -5324,7 +5334,7 @@ var $author$project$Main$experienceView = F5(
 							[
 								$elm$html$Html$Attributes$class('flex gap-2 flex-wrap items-center')
 							]),
-						A2($elm$core$List$map, $author$project$Main$techLabelView, technologies)),
+						A2($elm$core$List$map, $author$project$CVPage$CVPage$techLabelView, technologies)),
 						A2(
 						$elm$html$Html$article,
 						_List_fromArray(
@@ -5338,9 +5348,21 @@ var $author$project$Main$experienceView = F5(
 					]))
 			]);
 	});
-var $elm$html$Html$h1 = _VirtualDom_node('h1');
 var $elm$html$Html$header = _VirtualDom_node('header');
-var $author$project$Main$intoSectionView = A2(
+var $elm$html$Html$h1 = _VirtualDom_node('h1');
+var $author$project$Shared$viewPageTitle = function (title) {
+	return A2(
+		$elm$html$Html$h1,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('font-heading text-800 text-olive-700')
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text(title)
+			]));
+};
+var $author$project$CVPage$CVPage$intoSectionView = A2(
 	$elm$html$Html$header,
 	_List_fromArray(
 		[
@@ -5348,16 +5370,7 @@ var $author$project$Main$intoSectionView = A2(
 		]),
 	_List_fromArray(
 		[
-			A2(
-			$elm$html$Html$h1,
-			_List_fromArray(
-				[
-					$elm$html$Html$Attributes$class('font-heading md:text-800 text-700 text-olive-800 py-2')
-				]),
-			_List_fromArray(
-				[
-					$elm$html$Html$text('Michael Sjögren')
-				])),
+			$author$project$Shared$viewPageTitle('Michael Sjögren'),
 			A2(
 			$elm$html$Html$p,
 			_List_fromArray(
@@ -5366,145 +5379,206 @@ var $author$project$Main$intoSectionView = A2(
 				]),
 			_List_fromArray(
 				[
-					$elm$html$Html$text('\u000A                Hello im michael!\u000A                I currently work at PiiGAB AB as a Software Developer.\u000A                ')
+					$elm$html$Html$text('\u000A                Hello my name is Michael Sjögren!\u000A                I currently work at PiiGAB AB as a Software Developer.\u000A                ')
 				]))
 		]));
-var $author$project$Main$piigabStartTime = $elm$time$Time$millisToPosix(1653897600000);
+var $elm$core$String$isEmpty = function (string) {
+	return string === '';
+};
+var $author$project$CVPage$CVPage$piigabStartTime = $elm$time$Time$millisToPosix(1653897600000);
 var $elm$time$Time$posixToMillis = function (_v0) {
 	var millis = _v0.a;
 	return millis;
 };
-var $author$project$Main$calculateElapsedTime = F2(
+var $author$project$CVPage$CVPage$calculateElapsedTime = F2(
 	function (from, to) {
 		var elapsedSeconds = (($elm$time$Time$posixToMillis(to) - $elm$time$Time$posixToMillis(from)) / 1000) | 0;
 		var yearsElapsed = (elapsedSeconds / 31556926) | 0;
 		var months = ((elapsedSeconds / 2629743) | 0) - (yearsElapsed * 12);
 		return _Utils_Tuple2(yearsElapsed, months);
 	});
-var $author$project$Main$view = function (model) {
-	var _v0 = A2($author$project$Main$calculateElapsedTime, $author$project$Main$piigabStartTime, model.now);
+var $author$project$CVPage$CVPage$getElapsedTimeString = function (time) {
+	var _v0 = A2($author$project$CVPage$CVPage$calculateElapsedTime, $author$project$CVPage$CVPage$piigabStartTime, time);
 	var years = _v0.a;
 	var months = _v0.b;
 	var monthStr = (months <= 0) ? '' : ((months === 1) ? '1 Month' : ($elm$core$String$fromInt(months) + ' Months'));
 	var yearStr = (years <= 0) ? '' : ((years === 1) ? '1 Year ' : ($elm$core$String$fromInt(years) + ' Years'));
-	return {
-		body: _List_fromArray(
+	return _Utils_ap(
+		yearStr,
+		$elm$core$String$isEmpty(yearStr) ? ' ' : (' and ' + monthStr));
+};
+var $author$project$CVPage$CVPage$view = function (now) {
+	var tstr = $author$project$CVPage$CVPage$getElapsedTimeString(now);
+	return _List_fromArray(
+		[
+			$author$project$CVPage$CVPage$intoSectionView,
+			A2(
+			$elm$html$Html$div,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('grid gap-4 items-center')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$div,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class('grid gap-4 items-center max-w-4xl justify-center')
+						]),
+					_List_fromArray(
+						[
+							$author$project$Shared$viewSectionitle('Work'),
+							A2(
+							$elm$html$Html$div,
+							_List_Nil,
+							A5(
+								$author$project$CVPage$CVPage$experienceView,
+								'Software Developer - PiiGAB AB',
+								'\u000A                I develop and maintain full-stack web applications for the 900T, 900W, 900S, and 900 LTE product lines using Python, JavaScript, HTML, and CSS.\u000A                I also provide technical support to PiiGAB 900 customers, using tools such as TeamViewer and SSH, along with my Linux expertise.\u000A                My responsibilities include maintaining C/C++ applications that run on the gateway and generate meter data reports, as well as maintaining the gateway’s SQL database.\u000A                I also contribute to the development of a JSON-based REST API for the gateway.\u000A                ',
+								'2022-05-30',
+								'Now, ' + tstr,
+								_List_fromArray(
+									['Python', 'Linux', 'C/C++', 'Golang', 'CSS/Html', 'JavaScript', 'git', 'M-Bus', 'C#', 'Azure', 'Rest API', 'Zig']))),
+							A2(
+							$elm$html$Html$div,
+							_List_Nil,
+							A5(
+								$author$project$CVPage$CVPage$experienceView,
+								'PHP/Wordpress Web Developer - Strandska',
+								'\u000A                I took the initiative to design and develop a custom WordPress theme\u000A                specifically for Strandskas webpage,\u000A                ensuring that it aligned with their unique needs and branding.\u000A                Additionally, I have been responsible for the ongoing maintenance\u000A                and updates of the website to ensure its smooth operation.',
+								'2017',
+								'2018',
+								_List_fromArray(
+									['PHP', 'SQL', 'Wordpress', 'CMS', 'CSS/Html', 'JavaScript', 'JQuery', 'Git'])))
+						])),
+					A2(
+					$elm$html$Html$div,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class('grid gap-4 items-center pbe-4 max-w-4xl')
+						]),
+					_List_fromArray(
+						[
+							$author$project$Shared$viewSectionitle('Projects'),
+							A2(
+							$elm$html$Html$ul,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('grid gap-4 items-center')
+								]),
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$li,
+									_List_Nil,
+									_List_fromArray(
+										[
+											A3($author$project$CVPage$CVPage$projectView, 'M-Bus decoder', 'wired-mbus-decoder.html', 'Wired M-Bus decoder, written in Odin and exported to wasm')
+										])),
+									A2(
+									$elm$html$Html$li,
+									_List_Nil,
+									_List_fromArray(
+										[
+											A3($author$project$CVPage$CVPage$projectView, 'Robber Run', 'https://gruset.itch.io/robber-run', '\u000A            A game created for the Godot Wild Jam #33.\u000A            Take on the role of a thief maneuvering through obstacles while gathering coins.')
+										])),
+									A2(
+									$elm$html$Html$li,
+									_List_Nil,
+									_List_fromArray(
+										[
+											A3($author$project$CVPage$CVPage$projectView, 'Dying Ember', 'https://gruset.itch.io/dying-ember', '\u000A            An entry for Ludum Dare 42 game jam,\u000A            a Godot game crafted within a tight 72-hour timeframe.\u000A            You play as a ember trying to find its way back to the fiery brazier it calls home.\u000A            but be careful not to burn out!')
+										]))
+								]))
+						])),
+					$author$project$CVPage$CVPage$aboutMeView
+				]))
+		]);
+};
+var $author$project$Shared$PageCV = {$: 'PageCV'};
+var $elm$html$Html$nav = _VirtualDom_node('nav');
+var $author$project$Shared$PageDecoder = {$: 'PageDecoder'};
+var $author$project$Shared$viewNavLink = F4(
+	function (page, currentPage, title, link) {
+		var isActive = _Utils_eq(page, currentPage);
+		var listyle = 'font-heading p-4 text-600 w-full text-start ' + (isActive ? 'bg-olive-800 text-white' : 'text-olive-600 bg-white');
+		return A2(
+			$elm$html$Html$li,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('print:hidden ' + listyle)
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$a,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class('w-full block'),
+							$elm$html$Html$Attributes$href(link)
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text(title)
+						]))
+				]));
+	});
+var $author$project$Shared$viewNav = function (activePage) {
+	return A2(
+		$elm$html$Html$nav,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('w-full')
+			]),
+		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$div,
+				$elm$html$Html$ul,
 				_List_fromArray(
 					[
-						$elm$html$Html$Attributes$class('bg-neutral-50 grid gap-4 items-center m-auto p-4 max-w-7xl rounded-md text-olive-900 justify-center')
+						$elm$html$Html$Attributes$class('w-full flex gap-4 items-center justify-center')
 					]),
 				_List_fromArray(
 					[
-						$author$project$Main$intoSectionView,
-						$author$project$Main$aboutMeView,
-						A2(
-						$elm$html$Html$div,
-						_List_fromArray(
-							[
-								$elm$html$Html$Attributes$class('grid gap-4 items-center')
-							]),
-						_List_fromArray(
-							[
-								A2(
-								$elm$html$Html$div,
-								_List_fromArray(
-									[
-										$elm$html$Html$Attributes$class('grid gap-4 items-center max-w-4xl justify-center')
-									]),
-								_List_fromArray(
-									[
-										A2(
-										$elm$html$Html$h2,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('font-heading text-600 md:text-700 text-olive-800 font-heading')
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Work')
-											])),
-										A2(
-										$elm$html$Html$div,
-										_List_Nil,
-										A5(
-											$author$project$Main$experienceView,
-											'Software Developer - PiiGAB AB',
-											'\u000A                            I develop and maintain full-stack web applications for the 900T, 900W, 900S, and 900 LTE product lines using Python, JavaScript, HTML, and CSS.\u000A                            I also provide technical support to PiiGAB 900 customers, using tools such as TeamViewer and SSH, along with my Linux expertise.\u000A                            My responsibilities include maintaining C/C++ applications that run on the gateway and generate meter data reports, as well as maintaining the gateway’s SQL database.\u000A                            I also contribute to the development of a JSON-based REST API for the gateway.\u000A                            ',
-											'2022-05-30',
-											'Now, ' + (yearStr + ($elm$core$String$isEmpty(yearStr) ? ' ' : (' and ' + monthStr))),
-											_List_fromArray(
-												['Python', 'Linux', 'C/C++', 'Golang', 'CSS/Html', 'JavaScript', 'git', 'M-Bus', 'C#', 'Azure', 'Rest API', 'Zig']))),
-										A2(
-										$elm$html$Html$div,
-										_List_Nil,
-										A5(
-											$author$project$Main$experienceView,
-											'PHP/Wordpress Web Developer - Strandska',
-											'\u000A                            I took the initiative to design and develop a custom WordPress theme\u000A                            specifically for Strandskas webpage,\u000A                            ensuring that it aligned with their unique needs and branding.\u000A                            Additionally, I have been responsible for the ongoing maintenance\u000A                            and updates of the website to ensure its smooth operation.',
-											'2017',
-											'2018',
-											_List_fromArray(
-												['PHP', 'SQL', 'Wordpress', 'CMS', 'CSS/Html', 'JavaScript', 'JQuery', 'Git'])))
-									])),
-								A2(
-								$elm$html$Html$div,
-								_List_fromArray(
-									[
-										$elm$html$Html$Attributes$class('grid gap-4 items-center pbe-4 max-w-4xl')
-									]),
-								_List_fromArray(
-									[
-										A2(
-										$elm$html$Html$h2,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('text-600 md:text-700 text-olive-800 font-heading')
-											]),
-										_List_fromArray(
-											[
-												$elm$html$Html$text('Projects')
-											])),
-										A2(
-										$elm$html$Html$ul,
-										_List_fromArray(
-											[
-												$elm$html$Html$Attributes$class('grid gap-4 items-center')
-											]),
-										_List_fromArray(
-											[
-												A2(
-												$elm$html$Html$li,
-												_List_Nil,
-												_List_fromArray(
-													[
-														A3($author$project$Main$projectView, 'Robber Run', 'https://gruset.itch.io/robber-run', '\u000A                        A game created for the Godot Wild Jam #33.\u000A                        Take on the role of a thief maneuvering through obstacles while gathering coins.')
-													])),
-												A2(
-												$elm$html$Html$li,
-												_List_Nil,
-												_List_fromArray(
-													[
-														A3($author$project$Main$projectView, 'Dying Ember', 'https://gruset.itch.io/dying-ember', '\u000A                        An entry for Ludum Dare 42 game jam,\u000A                        a Godot game crafted within a tight 72-hour timeframe.\u000A                        You play as a ember trying to find its way back to the fiery brazier it calls home.\u000A                        but be careful not to burn out!')
-													]))
-											]))
-									]))
-							]))
+						A4($author$project$Shared$viewNavLink, $author$project$Shared$PageCV, activePage, 'CV', '/'),
+						A4($author$project$Shared$viewNavLink, $author$project$Shared$PageDecoder, activePage, 'M-Bus decoder', '/wired-mbus-decoder.html')
 					]))
+			]));
+};
+var $author$project$Shared$pageContainer = function (contents) {
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('bg-neutral-50 grid gap-4 items-center m-auto p-4 max-w-7xl rounded-md text-olive-900 justify-center')
 			]),
-		title: 'Michael Sjögren - Software Developer'
+		contents);
+};
+var $author$project$CVPage$Main$pageView = function (model) {
+	return {
+		body: _List_fromArray(
+			[
+				$author$project$Shared$viewNav($author$project$Shared$PageCV),
+				$author$project$Shared$pageContainer(
+				$author$project$CVPage$CVPage$view(model.now))
+			]),
+		title: 'Michael Sjögren | Software Developer CV'
 	};
+};
+var $author$project$CVPage$Main$view = function (model) {
+	return $author$project$CVPage$Main$pageView(model);
 };
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $author$project$Main$update = F2(
+var $author$project$CVPage$Main$update = F2(
 	function (msg, model) {
-		if (msg.$ === 'GetTime') {
+		if (msg.$ === 'CVMsg') {
 			var now = msg.a;
 			return _Utils_Tuple2(
-				$author$project$Main$Model(now),
+				_Utils_update(
+					model,
+					{now: now}),
 				$elm$core$Platform$Cmd$none);
 		} else {
 			return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
@@ -5657,10 +5731,10 @@ var $elm$url$Url$fromString = function (str) {
 var $elm$browser$Browser$document = _Browser_document;
 var $elm$core$Platform$Sub$batch = _Platform_batch;
 var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
-var $author$project$Main$subscriptions = function (_v0) {
+var $author$project$CVPage$Main$subscriptions = function (_v0) {
 	return $elm$core$Platform$Sub$none;
 };
-var $author$project$Main$main = $elm$browser$Browser$document(
-	{init: $author$project$Main$init, view: $author$project$Main$view, update: $author$project$Main$update, subscriptions: $author$project$Main$subscriptions});
-_Platform_export({'Main':{'init':$author$project$Main$main(
-	$elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));
+var $author$project$CVPage$Main$main = $elm$browser$Browser$document(
+	{init: $author$project$CVPage$Main$init, view: $author$project$CVPage$Main$view, update: $author$project$CVPage$Main$update, subscriptions: $author$project$CVPage$Main$subscriptions});
+_Platform_export({'CVPage':{'Main':{'init':$author$project$CVPage$Main$main(
+	$elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}}});}(this));

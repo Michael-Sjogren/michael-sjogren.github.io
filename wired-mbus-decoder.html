@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Michael Sjögren</title>
+        <script src="wired-mbus-decoder.js"></script>
+        <link rel="stylesheet" href="output.css" />
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <!-- <link rel="stylesheet" media="print" href="print.css"> -->
+    </head>
+    <body class="">
+        <div id="myapp"></div>
+        <script src="odin.js"></script>
+        <script>
+            var exports = null;
+            const wasmMemoryInterface = new odin.WasmMemoryInterface();
+            const extraImports = {};
+
+            function decode(telegram) {
+                console.log(telegram);
+                if (!(telegram instanceof Uint8Array)) {
+                    console.error("not a u8 array");
+                    return null;
+                }
+                // Reset the arena at the START of each decode
+
+                // Write data to WASM memory
+                const ptr = 1024;
+                const buffer = wasmMemoryInterface.loadBytes(
+                    ptr,
+                    telegram.length,
+                );
+                buffer.set(telegram);
+                const resultPtr = exports.decode_telegram(
+                    ptr,
+                    ptr,
+                    telegram.length,
+                );
+                if (resultPtr <= 0) {
+                    // console.error("failed to decode mbus telegram");
+                    console.error("failed to decode mbus telegram");
+                    return null;
+                }
+                const str = wasmMemoryInterface.loadCstring(resultPtr);
+                console.log("Decode response:");
+                console.log(str);
+                return str;
+            }
+
+            async function main() {
+                var app = Elm.MBus.Wired.Main.init({
+                    node: document.getElementById("myapp"),
+                });
+                await odin.runWasm(
+                    "./decoder.wasm",
+                    document.getElementById("console"),
+                    extraImports,
+                    wasmMemoryInterface,
+                );
+                exports = wasmMemoryInterface.exports;
+                app.ports.sendDecodeRequest.subscribe(async (inputArray) => {
+                    try {
+                        const bytes = new Uint8Array(inputArray)
+                        app.ports.decodeResult.send(decode(bytes));
+                    } catch (e) {
+                        console.error("failed to decode " + e);
+                    }
+                });
+            }
+
+            main();
+        </script>
+        <noscript>Please enable javascript</noscript>
+    </body>
+</html>

@@ -1,5 +1,6 @@
 build:
-	elm make src/Main.elm --output=index.js
+	elm make src/CVPage/Main.elm --output=cv-index.js
+	elm make src/MBus/Wired/Main.elm --output=wired-mbus-decoder.js --debug
 
 css:
 	npx @tailwindcss/cli -i input.css -o output.css --watch --minify --optimize
